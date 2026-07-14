@@ -1,0 +1,27 @@
+[
+    {
+        "question": "Where is the project located?",
+        "project": "Search All Projects",
+        "confidence": 42.9
+    },
+    {
+        "question": "Explain the payment plan.",
+        "project": "Horizon Business Park",
+        "confidence": 51.75
+    },
+    {
+        "question": "What amenities are available?",
+        "project": "SHT Residency",
+        "confidence": 51.02
+    },
+    {
+        "question": "Show available floor plans.",
+        "project": "UNR Heights",
+        "confidence": 46.79
+    },
+    {
+        "question": "Recommend the best project.",
+        "project": "UNR Heights",
+        "confidence": 39.89
+    }
+]

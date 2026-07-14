@@ -23,5 +23,10 @@
         "question": "Recommend the best project.",
         "project": "UNR Heights",
         "confidence": 39.89
+    },
+    {
+        "question": "Explain the payment plan.",
+        "project": "Search All Projects",
+        "confidence": 51.75
     }
 ]

@@ -1,13 +1,20 @@
 import os
 from dotenv import load_dotenv
-
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_google_genai import ChatGoogleGenerativeAI
+import streamlit as st
 
 load_dotenv()
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+try:
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+except Exception:
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
+if not GOOGLE_API_KEY:
+    raise ValueError("GOOGLE_API_KEY not found. Please configure it in .env or Streamlit Secrets.")
+#GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # -----------------------------
 # Load Embeddings
@@ -30,8 +37,19 @@ retriever = vector_db.as_retriever(search_kwargs={"k": 3})
 # -----------------------------
 # Load Gemini
 # -----------------------------
+#llm = ChatGoogleGenerativeAI(
+    #model="gemini-3.1-flash-lite",
+    #google_api_key=GOOGLE_API_KEY,
+    #temperature=0.3
+#)
+#llm = ChatGoogleGenerativeAI(
+    #model="gemini-2.5-flash",
+    #google_api_key=GOOGLE_API_KEY,
+    #temperature=0.3
+#)
+
 llm = ChatGoogleGenerativeAI(
-    model="gemini-3.1-flash-lite",
+    model="models/gemini-3.1-flash-lite",
     google_api_key=GOOGLE_API_KEY,
     temperature=0.3
 )
